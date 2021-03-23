@@ -9,5 +9,3 @@
   - scientific calculator
   - calculator programmer
   - data calculator
-
-![img/image.png]
