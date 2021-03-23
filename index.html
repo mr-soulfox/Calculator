@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Calculator</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="shortcut icon" href="img/favicon.svg" type="image/x-icon">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,500;0,700;1,500&family=Tajawal&display=swap" rel="stylesheet">
+    </head>
+    <body>
+
+        <header>
+            <div class="headerContainer">
+
+                <h1 id="title">Calculadora padrão</h1>
+
+                <h2 id="description">é uma calculadora com as funçoes padrões</h2>
+
+            </div>
+        </header>
+
+        <main>
+            <section class="calcContainer">
+
+                <section id="calc">
+
+                    <div class="inputContainer">
+
+                        <div>
+                            <span id='localMenssageError'>Os erros aparecerão aqui</span>
+                        </div>
+
+                        <input type="text" id="display" disabled />
+
+                    </div>
+
+                    <div class="buttonsContainer">
+
+                        <div class="buttons" id="button1">
+                            <button onclick="calculate('%')">
+                                <img src="img/calcButtons/porcent.svg" alt="%">
+                            </button>
+                        </div>
+                        <div class="buttons" id="button2">
+                            <button onclick="calculate('ce-c')">
+                                CE-C
+                            </button>
+                        </div>
+                        <div class="buttons" id="button3">
+                            <button onclick="calculate('remove')">
+                                <img src="img/calcButtons/remove.svg" alt="remo">
+                            </button>
+                        </div>
+                        <div class="buttons" id="button4">
+                            <button onclick="calculate('/')">
+                                <sup>1</sup>/<sub>x</sub>
+                            </button>
+                        </div>
+                        <div class="buttons" id="button5">
+                            <button onclick="calculate('^')">
+                                x<sup>1</sup>
+                            </button>
+                        </div>
+                        <div class="buttons" id="button6">
+                            <button onclick="calculate('√')">
+                                <img src="img/calcButtons/squareRoot.svg" alt="raiz quadrada">
+                            </button>
+                        </div>
+                        <div class="buttons" id="button7">
+                            <button onclick="calculate('÷')">
+                                <img src="img/calcButtons/divide.svg" alt="/">
+                            </button>
+                        </div>
+                        <div class="buttons" id="button8">
+                            <button onclick="calculate(1)">
+                                1
+                            </button>
+                        </div>
+                        <div class="buttons" id="button9">
+                            <button onclick="calculate(2)">
+                                2
+                            </button>
+                        </div>
+                        <div class="buttons" id="button10">
+                            <button onclick="calculate(3)">
+                                3
+                            </button>
+                        </div>
+                        <div class="buttons" id="button11">
+                            <button onclick="calculate('x')">
+                                <img src="img/calcButtons/multiply.svg" alt="x">
+                            </button>
+                        </div>
+                        <div class="buttons" id="button12">
+                            <button onclick="calculate(4)">
+                                4
+                            </button>
+                        </div>
+                        <div class="buttons" id="button13">
+                            <button onclick="calculate(5)">
+                                5
+                            </button>
+                        </div>
+                        <div class="buttons" id="button14">
+                            <button onclick="calculate(6)">
+                                6
+                            </button>
+                        </div>
+                        <div class="buttons" id="button15">
+                            <button onclick="calculate('-')">
+                                <img src="img/calcButtons/minus.svg" alt="-">
+                            </button>
+                        </div>
+                        <div class="buttons" id="button16">
+                            <button onclick="calculate(7)">
+                                7
+                            </button>
+                        </div>
+                        <div class="buttons" id="button17">
+                            <button onclick="calculate(8)">
+                                8
+                            </button>
+                        </div>
+                        <div class="buttons" id="button18">
+                            <button onclick="calculate(9)">
+                                9
+                            </button>
+                        </div>
+                        <div class="buttons" id="button19">
+                            <button onclick="calculate('+')">
+                                <img src="img/calcButtons/add.svg" alt="+">
+                            </button>
+                        </div>
+                        <div class="buttons" id="button20">
+                            <button onclick="calculate('negative')">
+                                <sup>+</sup>/<sub>-</sub>
+                            </button>
+                        </div>
+                        <div class="buttons" id="button21">
+                            <button onclick="calculate(0)">
+                                0
+                            </button>
+                        </div>
+                        <div class="buttons" id="button22">
+                            <button onclick="calculate(',')">
+                                ,
+                            </button>
+                        </div>
+                        <div class="buttons" id="button23">
+                            <button onclick="calculate('result')">
+                                <img src="img/calcButtons/equal.svg" alt="result">
+                            </button>
+                        </div>
+
+                    </div>
+
+                </section>
+
+            </section>
+
+        </main>
+
+        <footer>
+            <section>
+                <div class="logoContainer">
+                    <a href="https://alura.com.br" target="_blank">
+                        <img src="img/aluraLogo.svg">
+                    </a>
+                </div>
+
+                <span>
+                    Criado por <a href="https://github.com/mr-soulfox" target="_blank">Marcos Paulo</a> 2021
+                </span>
+
+                <div class="imersaoContainer">
+                    <img src="img/logoImersao.svg">
+                </div>
+            </section>
+        </footer>
+
+        <script src="script.js"></script>
+
+    </body>
+</html>
