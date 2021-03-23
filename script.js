@@ -25,10 +25,10 @@ function writeInInput(value) {
 
         display.value = arrayDisplayValue.join('')
 
-    } else if (value == '+' || value == '-' || value == 'x' || value == '÷' || value == '%' || value == '/' || value == '^' || value == '√' || value == ',') {
+    } else if (value == '+' || value == '-' || value == 'x' || value == '÷' || value == '%' || value == '/' || value == '^' || value == '√' || value == '.') {
 
         //condicional bloqueando o uso indevido dos simbolos
-        if (lastItem == '+' || lastItem == '-' || lastItem == 'x' || lastItem == '÷' || lastItem == '%' || lastItem == '/' || lastItem == '^' || lastItem == '√' || lastItem == ',') {
+        if (lastItem == '+' || lastItem == '-' || lastItem == 'x' || lastItem == '÷' || lastItem == '%' || lastItem == '/' || lastItem == '^' || lastItem == '√' || lastItem == '.') {
 
             localMenssageError.innerText = 'Não adicione simbolos seguidos'
             localMenssageError.style.color = 'darkred'
@@ -137,21 +137,28 @@ function writeInInput(value) {
 //função que serve para efetuar o calculo
 function calculateDisplay(displayValue) {
 
-    //trocando todo o basico para ficar em forma aritmetica
-    let valueReplaced = displayValue.replace(',', '.')
-    valueReplaced = valueReplaced.replace('x','*')
-    valueReplaced = valueReplaced.replace('÷','/')
-    valueReplaced = valueReplaced.replace('^','**')
+    //loop para trocar todos os dimbolos basicos
+    for (let i = 0; i < (displayValue.length - 1); i++) {
 
+        displayValue = displayValue.replace('x','*')
+        displayValue = displayValue.replace('÷','/')
+        displayValue = displayValue.replace('^','**')
+
+    }
     
     //caso seja calculo de porcentagem 
     if (displayValue.search('%') != -1) {
-        valueReplaced = valueReplaced.replace('%', '')
-        valueReplaced = valueReplaced.replace(' de ', '-')
 
-        let position = valueReplaced.length
+        for (let i = 0; i < (displayValue.length - 1); i++) {
 
-        let arrayOnlyNumber = valueReplaced.split('-', position)
+            displayValue = displayValue.replace('%', '')
+            displayValue = displayValue.replace(' de ', '-')
+    
+        }
+
+        let position = displayValue.length
+
+        let arrayOnlyNumber = displayValue.split('-', position)
 
         let porcent = Number(arrayOnlyNumber[0])
         let number = Number(arrayOnlyNumber[1])
@@ -164,20 +171,25 @@ function calculateDisplay(displayValue) {
 
     } else if (displayValue.search('√') != -1) {
 
-        let position = valueReplaced.search('√')
+        let position = displayValue.search('√')
 
-        let arrayOnlyNumber = valueReplaced.split('', position)
+        let arrayOnlyNumber = displayValue.split('', position)
 
-        let result = Math.sqrt(arrayOnlyNumber[0]).toFixed(2)
+        let result = Math.pow(arrayOnlyNumber[0], 0.5).toFixed(2)
 
-        //se tudo certo, mostra o resultado dentro do input
-        const display = document.getElementById('display')
-        display.value = result
+        if (result == 'NaN') {
+            localMenssageError.innerText = 'A √ não permite numeros negativos'
+            localMenssageError.style.color = 'darkred'
+        } else {
+            //se tudo certo, mostra o resultado dentro do input
+            const display = document.getElementById('display')
+            display.value = result
+        }
 
     } else if (displayValue.search('%') == -1) {
 
-            //metodo para fazer o calculo mesmo sendo string (recomendo que não utilize muito, só em casos especificos)
-        let result = eval(valueReplaced.toString())
+        //metodo para fazer o calculo mesmo sendo string (recomendo que não utilize muito, só em casos especificos)
+        let result = eval(displayValue.toString()).toFixed(2)
 
         //verificando se a operação funciono
         if (isNaN(result) == false) {
@@ -217,13 +229,13 @@ function calculate(value) {
         //chamando função
         writeInInput(value)
 
-        //caso seja um result ele chama a função pra calcular e depois imprimi isso dentro do input
+        //caso esteja vazio ele informa o erro
     } else if (displayValue == '' || Number(displayValue.replace(',', '.')) == 'NaN') {
 
         localMenssageError.innerText = 'Nenhuma operação adicionada'
         localMenssageError.style.color = 'yellow'
 
-    } else if (lastItem == '+' || lastItem == '-' || lastItem == 'x' || lastItem == '÷' || lastItem == '%' || lastItem == '/' || lastItem == '^' || lastItem == ',') {
+    } else if (lastItem == '+' || lastItem == '-' || lastItem == 'x' || lastItem == '÷' || lastItem == '%' || lastItem == '/' || lastItem == '^' || lastItem == '.') {
 
         localMenssageError.innerText = 'Operação não fechada'
         localMenssageError.style.color = 'darkred'
