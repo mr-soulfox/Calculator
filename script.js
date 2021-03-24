@@ -1,6 +1,9 @@
 //pegando o local das mensagens de erro
 const localMenssageError = document.getElementById('localMenssageError')
 
+//ativando função quando alguem aperta qualquer tecla
+document.addEventListener('keydown', keyboard)
+
 //função para escrever dentro do input para não deixar o calculate poluido de comandos
 function writeInInput(value) {
     //pega o valor que esta no display
@@ -25,7 +28,7 @@ function writeInInput(value) {
 
         display.value = arrayDisplayValue.join('')
 
-    } else if (value == '+' || value == '-' || value == 'x' || value == '÷' || value == '%' || value == '/' || value == '^' || value == '√' || value == '.') {
+    } else if (value == '+' || value == '-' || value == 'x' || value == '÷' || value == '%' || value == '^' || value == '√' || value == '.') {
 
         //condicional bloqueando o uso indevido dos simbolos
         if (lastItem == '+' || lastItem == '-' || lastItem == 'x' || lastItem == '÷' || lastItem == '%' || lastItem == '/' || lastItem == '^' || lastItem == '√' || lastItem == '.') {
@@ -105,7 +108,20 @@ function writeInInput(value) {
             display.value += '-'
 
         }
-    } else {
+    } else if (value == '/') {
+
+        if (lastItem == '+' || lastItem == '-' || lastItem == 'x' || lastItem == '÷' || lastItem == undefined) {
+
+            display.value += '1/'
+
+        } else {
+
+            localMenssageError.innerText = 'Fração indevida'
+            localMenssageError.style.color = 'darkred'
+            //não permite a pessoa fazer uma fração indevida
+        }
+
+    }else {
 
 
         //deixando a operação pra descobrir porcentagem mais bonito
@@ -213,6 +229,167 @@ function calculateDisplay(displayValue) {
 
 }
 
+function keyboard(keydownEvent) {
+    
+    let eventKeyCode = keydownEvent.keyCode
+
+    //switch para enviar pra função um determinado valor conforme a tecla pressionada, utiliza o codigo ASCII pra saber o codigo da tecla
+    switch (eventKeyCode) {
+
+        //para aparecer o resultado
+        case 13: 
+            calculate('result')
+            break
+        
+        //para apagar o input completo
+        case 67:
+            calculate('ce-c')
+            break
+        
+        //para remover um caracter
+        case 8:
+            calculate('remove')
+            break
+
+        //para divisão
+        case 193:
+            calculate('÷')
+            break
+        case 111:
+            calculate('÷')
+            break
+        
+        //para multiplicação
+        case 106:
+            calculate('x')
+            break
+        
+        //para subtração
+        case 189:
+            calculate('-')
+            break
+        case 109:
+            calculate('-')
+            break
+        
+        //para adição
+        case 107:
+            calculate('+')
+            break
+        
+        //negativo 
+        case 78:
+            calculate('negative')
+            break
+        
+        //para adicionar .
+        case 190:
+            calculate('.')
+            break
+        case 188:
+            calculate('.')
+            break
+        
+        //para açoes especiais
+        case 80:
+            calculate('%')
+            break
+        case 70:
+            calculate('/')
+            break
+        case 69:
+            calculate('^')
+            break
+        case 81:
+            calculate('√')
+            break
+        
+        
+        //adicionando numeros não pelo numpad
+        case 48:
+            calculate('0') 
+            break
+        case 49:
+            calculate('1')
+            break
+        case 50:
+            calculate('2')
+            break
+        case 51:
+            calculate('3')
+            break
+        case 52:
+            calculate('4')
+            break
+        case 53:
+            calculate('5')
+            break
+        case 54:
+            calculate('6')
+            break
+        case 55:
+            calculate('7')
+            break
+        case 56:
+            calculate('8')
+            break
+        case 57:
+            calculate('9')
+            break
+
+        //adicionado pelo numpad
+        case 96:
+            calculate('0') 
+            break
+        case 97:
+            calculate('1')
+            break
+        case 98:
+            calculate('2')
+            break
+        case 99:
+            calculate('3')
+            break
+        case 100:
+            calculate('4')
+            break
+        case 101:
+            calculate('5')
+            break
+        case 102:
+            calculate('6')
+            break
+        case 103:
+            calculate('7')
+            break
+        case 104:
+            calculate('8')
+            break
+        case 105:
+            calculate('9')
+            break
+
+        //tecla extra
+        case 46:
+            var key = prompt('digite a senha')
+            
+            if (key == '?') {
+
+                console.log('Tecla extra: "Você gosta mesmo de digitar, vira escritor"')
+
+            } else {
+
+                console.log('ERROU!!!!!')
+
+            }
+            break
+
+        default:
+            null
+    }
+
+}
+
 //função para fazer mostrar o resultado no display
 function calculate(value) {
     
@@ -233,7 +410,7 @@ function calculate(value) {
     } else if (displayValue == '' || Number(displayValue.replace(',', '.')) == 'NaN') {
 
         localMenssageError.innerText = 'Nenhuma operação adicionada'
-        localMenssageError.style.color = 'yellow'
+        localMenssageError.style.color = 'darkred'
 
     } else if (lastItem == '+' || lastItem == '-' || lastItem == 'x' || lastItem == '÷' || lastItem == '%' || lastItem == '/' || lastItem == '^' || lastItem == '.') {
 

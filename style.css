@@ -7,7 +7,13 @@
 }
 a {
     text-decoration: none;
-    color: #000;
+    color: white;
+}
+ul, li {
+    list-style: none;
+}
+footer {
+    color: white;
 }
 body {
     background-color: #87cefa;
@@ -234,4 +240,22 @@ body {
 }
 .imersaoContainer img {
     width: 170px;
+}
+.containerAside {
+    width: 240px;
+    height: 225px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.6);
+    color: black;
+    border: 3px solid white;
+    border-radius: 0 0 0 6px;
+    position: fixed;
+    top: 1px;
+    right: 1px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.containerAside > p > ul, li {
+    margin-left: 20px;
 }
