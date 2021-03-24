@@ -1,13 +1,18 @@
+//pega o valor que esta no display
+const display = document.getElementById("display")
+
 //pegando o local das mensagens de erro
 const localMenssageError = document.getElementById('localMenssageError')
 
-//ativando função quando alguem aperta qualquer tecla
+//ativando função quando alguem aperta qualquer tecla 
 document.addEventListener('keydown', keyboard)
+
+//criando lista do log e a lista de removidos do log
+let logList = []
+let removedListLog = []
 
 //função para escrever dentro do input para não deixar o calculate poluido de comandos
 function writeInInput(value) {
-    //pega o valor que esta no display
-    const display = document.getElementById("display")
 
     //pegando ultimo valor digitado
     let displayValue = display.value
@@ -229,6 +234,7 @@ function calculateDisplay(displayValue) {
 
 }
 
+//função para compatibilidade com o teclado
 function keyboard(keydownEvent) {
     
     let eventKeyCode = keydownEvent.keyCode
@@ -368,7 +374,7 @@ function keyboard(keydownEvent) {
         case 105:
             calculate('9')
             break
-
+        
         //tecla extra
         case 46:
             var key = prompt('digite a senha')
@@ -390,6 +396,36 @@ function keyboard(keydownEvent) {
 
 }
 
+//função do log
+function log(calc) {
+    //pegando log
+    const log = document.getElementById('log')
+
+    if ((logList.length - 1) >= 13) {
+
+        //lista com os valores já removidos do log visivel
+        removedListLog = logList
+
+        //apagando lista
+        logList = []
+
+        //adicionando o ultimo valor colocado no array
+        logList.push(removedListLog[removedListLog.length - 1])
+
+        //adicionando na lista
+        logList.push(calc)
+
+        log.innerHTML = logList[0] + '<br/>' + calc + '<br/>'
+
+    } else {
+
+        //adicionando na lista
+        logList.push(calc)
+
+        log.innerHTML += calc + '<br/>'
+    }
+}
+
 //função para fazer mostrar o resultado no display
 function calculate(value) {
     
@@ -403,7 +439,7 @@ function calculate(value) {
     //caso não seja um result o valor entregue ele manda pra função que mexe para escrever no input e bloquear atitudes invalidas
     if (value != 'result') {
 
-        //chamando função
+        //chamando função para escrever
         writeInInput(value)
 
         //caso esteja vazio ele informa o erro
@@ -418,8 +454,32 @@ function calculate(value) {
         localMenssageError.style.color = 'darkred'
 
     } else {
-        //chamando função
+        //chamando função para calcular
         calculateDisplay(displayValue)
+
+        //chamando função para adicionar valor do display
+        log(displayValue)
+
+    }
+}
+
+//função para mostrar o menu
+function menu(visibility) {
+
+    //pegando elementos
+    const menu = document.getElementById('menu')
+    const menuButton = document.getElementById('menuButton')
+
+    //condição para mostrar ou não
+    if (visibility == 'hidden') {
+
+        menu.style.visibility = 'visible'
+        menuButton.style.visibility = 'hidden'
+
+    } else if (visibility == 'visible') {
+
+        menu.style.visibility = 'hidden'
+        menuButton.style.visibility = 'visible'
 
     }
 }

@@ -163,22 +163,40 @@
 
         </main>
 
-        <aside>
-            <div class="containerAside">
-                <p>
-                    Teclas permitidas: <br/>
-                    <ul>
-                        <li>C - Serve para apagar tudo</li>
-                        <li>P - Serve para porcentagem</li>
-                        <li>F - Serve para fração</li>
-                        <li>E - serve para expoenciação</li>
-                        <li>Q - serve para raiz quadrada</li>
-                        <li>N - Serve para o simbolo -</li>
-                        <li>ENTER - Mostrar o resultado</li>
-                        <li>BACKSPACE - Apagar </li>
-                    </ul> 
-                </p>
+        <aside class="aside">
+
+            <div class="menuVisibility">
+                <button type="button" id="menuButton">
+                    <img src="img/menu.svg" alt="menu" onclick="menu('hidden')">
+                </button>                
             </div>
+
+            <section id="menu" onclick="menu('visible')">
+                <div class="containerLog">
+                    <div class="log">
+                        <span>Historico:</span> 
+                        <span id="log">
+                            <!--Log ira carregar pelo js aqui dentro, maximo 16 logs-->
+                        </span>
+                    </div>
+                </div>
+
+                <div class="containerCommands">
+                    <p>
+                        Teclas permitidas: <br/>
+                        <ul>
+                            <li>C - Serve para apagar tudo</li>
+                            <li>P - Serve para porcentagem</li>
+                            <li>F - Serve para fração</li>
+                            <li>E - serve para expoenciação</li>
+                            <li>Q - serve para raiz quadrada</li>
+                            <li>N - Serve para o simbolo -</li>
+                            <li>ENTER - Mostrar o resultado</li>
+                            <li>BACKSPACE - Apagar </li>
+                        </ul> 
+                    </p>
+                </div>
+            </section>
         </aside>
 
         <footer>
@@ -192,10 +210,6 @@
                 <span>
                     Criado por <a href="https://github.com/mr-soulfox" target="_blank">Marcos Paulo</a> 2021
                 </span>
-
-                <div class="imersaoContainer">
-                    <img src="img/logoImersao.svg">
-                </div>
             </section>
         </footer>
 
