@@ -27,6 +27,9 @@ function changeCalculator() {
         inputs.style.visibility = 'visible'
         result.style.visibility = 'visible'
 
+        //mudando o titulo da pagina
+        document.title = 'Calculadora | data'
+
     } else {
         //sumindo com a interface padrão
         calcElement.style.visibility = 'visible'
@@ -40,6 +43,9 @@ function changeCalculator() {
 
         inputs.style.visibility = 'hidden'
         result.style.visibility = 'hidden'
+
+        //mudando o titulo da pagina
+        document.title = 'Calculadora | padrão'
 
     }
 

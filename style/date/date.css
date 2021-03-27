@@ -25,6 +25,12 @@
 #right {
     margin-left: 3px;
 }
+#left:focus {
+    outline: none;
+}
+#right:focus {
+    outline: none;
+}
 #resultContainer {
     width: 100%;
     height: 100%;
@@ -35,7 +41,7 @@
     color: white;
 }
 .result {
-    width: 300px;
+    width: 315px;
     height: 50px;
     background-color: #5e5a5a;
     color: white;

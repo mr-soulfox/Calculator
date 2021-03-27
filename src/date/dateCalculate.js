@@ -46,7 +46,7 @@ function dateCalculate() {
 
             } else if (i == 1) {
 
-                if (year != 0) {
+                if (year != 0 && arrayLeft[i] != arrayRight[i] && arrayLeft[i] > 11) {
 
                     var month = Math.abs(((arrayLeft[i] + arrayRight[i]) - 12))
 
