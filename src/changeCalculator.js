@@ -7,6 +7,8 @@ function changeCalculator() {
     const container = document.getElementById('calcContainer')
     const menuButton = document.getElementById('menuButton')
     const menu = document.getElementById('menu')
+    const title = document.getElementById('typeCalcTitle')
+    const description = document.getElementById('typeCalcDescription')
 
 
     const inputs = document.getElementById('inputs')
@@ -30,6 +32,10 @@ function changeCalculator() {
         //mudando o titulo da pagina
         document.title = 'Calculadora | data'
 
+        //mudando titulo e descrição da Calculadora
+        title.innerText = 'Calculadora de datas'
+        description.innerText = 'É uma calculadora com a função de mostrar os dias, meses e anos de diferença'
+
     } else {
         //sumindo com a interface padrão
         calcElement.style.visibility = 'visible'
@@ -46,6 +52,10 @@ function changeCalculator() {
 
         //mudando o titulo da pagina
         document.title = 'Calculadora | padrão'
+
+        //mudando titulo e descrição da calculadora
+        title.innerText = 'Calculadora padrão'
+        description.innerText = 'É uma calculadora com as funções padrões'
 
     }
 
