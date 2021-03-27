@@ -21,97 +21,14 @@ body {
     flex-direction: column;
     align-items: center;
 }
-.headerContainer {
-    width: 100vw;
-    display: flex;
-    flex-direction: column;
-    align-items: center
+#typeCalc {
+    margin: 6px;
+    background-color: #474444;
+    color: #fff;
 }
-.headerContainer > h1 {
-    margin-top: 10px;
-    margin-bottom: 5px;
-    font-size: 2.5rem;
+#typeCalc, option, optgroup{
+    font-size: 1.3rem;
 }
-.headerContainer > h2 {
-    margin: -3px;
-    font-size: 1.5rem;
-    text-align: center;
-}
-.containerLog {
-    width: 240px;
-    height: calc(100% - 210px);
-    padding: 10px;
-    background-color: rgba(255, 255, 255, 0.6);
-    color: black;
-    border: 3px solid white;
-    border-bottom: none;
-    border-radius: 6px 0 0 0;
-    position: fixed;
-    bottom: 210px;
-    right: 1px;
-}
-.log {
-    height: 100%;
-    padding: 3px;
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    border: 3px solid black;
-    border-radius: 3px;
-    background-color: rgba(121, 109, 109, 0.2);
-    font-size: 1.1rem;
-}
-#log {
-    width: 190px;
-    height: 100%;
-    margin-left: 9px;
-    text-align: start;
-    background-color: rgba(121, 109, 109, 0.0);
-}
-.containerCommands {
-    width: 240px;
-    height: 210px;
-    padding: 5px;
-    background-color: rgba(255, 255, 255, 0.6);
-    color: black;
-    border: 3px solid white;
-    border-radius: 0 0 0 6px;
-    position: fixed;
-    bottom: 1px;
-    right: 1px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-.containerAside > p > ul, li {
-    margin-left: 20px;
-}
-.aside {
-    visibility: hidden;
-}
-.menuVisibility > button {
-    width: 50px;
-    height: 50px;
-    position: fixed;
-    right: 10px;
-    top: 10px;
-    visibility: visible;
-    border: none;
-    background-color: rgba(121, 109, 109, 0.0);
-}
-.menuVisibility > button > img {
-    width: 45px;
-    height: 45px;
-}
-.menuVisibility > button:focus {
-    outline: none;
-    background-color: rgba(255, 255, 255, 0.3);
-}
-.logoContainer {
-    position: fixed;
-    bottom: 3px;
-    left: 3px;
-}
-.logoContainer img {
-    width: 60px;
+#typeCalc:focus {
+    outline: none
 }

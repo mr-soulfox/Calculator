@@ -80,7 +80,7 @@ function writeInInput(value) {
         //não permite adicionar o simbolo - duas vezes seguidas
         if (lastItem == '-') {
 
-            localMenssageError.innerText = 'Não adicione mais de dois simbolos (negativos)'
+            localMenssageError.innerText = 'Não adicione dois negativos seguidos'
             localMenssageError.style.color = 'darkred'
 
             //não permite masi de 16 caracteres no input
@@ -101,18 +101,13 @@ function writeInInput(value) {
             localMenssageError.innerText = 'Apos o % não da pra fazer mais operaçoes'
             localMenssageError.style.color = 'darkred'
             
-            //não permite o usuario adicionar mais de 1 numero negativo por questoes de bugs
-        } else if (lastItem != undefined) {
-
-            localMenssageError.innerText = 'Adicione 1 numero negativo no inicio'
-            localMenssageError.style.color = 'darkred'
-
-            //caso tudo certo ele coloca no input
-        }else {
-
+        } else if (lastItem == undefined || lastItem == '+' || lastItem == '÷' || lastItem == 'x' || lastItem == '^') {
+            
             display.value += '-'
 
+            //caso tudo certo ele coloca no input
         }
+
     } else if (value == '/') {
 
         if (lastItem == '+' || lastItem == '-' || lastItem == 'x' || lastItem == '÷' || lastItem == undefined) {

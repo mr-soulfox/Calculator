@@ -6,6 +6,9 @@
 
 #### 	Add in future
 
-  - scientific calculator
-  - calculator programmer
+  - Converters 
+  - Responsiveness
+#### recent added
+
   - data calculator
+  - Change calculator

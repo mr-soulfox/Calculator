@@ -7,6 +7,8 @@
         <title>Calculator | padrão</title>
         <link rel="stylesheet" href="style/style.css">
         <link rel="stylesheet" href="style/default/defaultCalculator.css">
+        <link rel="stylesheet" href="style/log/log.css">
+        <link rel="stylesheet" href="style/date/date.css">
         <link rel="shortcut icon" href="img/favicon.svg" type="image/x-icon">
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,500;0,700;1,500&family=Tajawal&display=swap" rel="stylesheet">
@@ -23,8 +25,29 @@
             </div>
         </header>
 
+        <select name="typeCalc" id="typeCalc" onchange="changeCalculator()">
+            <optgroup label="Calculadoras">
+                <option value="default">Calculadora padrão</option>
+                <option value="date">Calculadora de data</option>
+            </optgroup>
+            <optgroup label="Conversores">
+                <option value="coin">Moeda</option>
+                <option value="volume">Volume</option>
+                <option value="comprimento">Comprimento</option>
+                <option value="psms">Peso e massa</option>
+                <option value="temp">Temperatura</option>
+                <option value="energy">Energia</option>
+                <option value="area">Área</option>
+                <option value="speed">Velocidade</option>
+                <option value="time">Tempo</option>
+                <option value="disk">Dados</option>
+                <option value="press">Pressão</option>
+                <option value="angulo">Ângulo</option>
+            </optgroup>
+        </select>
+
         <main>
-            <section class="calcContainer">
+            <section class="calcContainer" id="calcContainer">
 
                 <section id="calc">
 
@@ -160,19 +183,30 @@
 
                 </section>
 
+                <!--Calculadora de data-->
+                <section class="data" id="data">
+                    <div id="inputs">
+                        <input type="date" name="time" class="time" id="left" onchange="dateCalculate()"/>----><input type="date" name="time" class="time" id="right" onchange="dateCalculate()"/>                      
+                    </div>
+                    <div id="resultContainer">
+                        <h2>Diferença:</h2>
+                        <input type="text" name="result" class="result" id="boxResult" disabled>
+                    </div>
+                </section>
+
             </section>
 
         </main>
 
-        <aside class="aside">
+        <aside class="aside" id="menuContainer">
 
-            <div class="menuVisibility">
+            <div class="menuVisibility" id="btnMenu">
                 <button type="button" id="menuButton">
                     <img src="img/menu.svg" alt="menu" onclick="menu('hidden')">
                 </button>                
             </div>
 
-            <section id="menu" onclick="menu('visible')">
+            <section id="menu" onclick="menu('visible')" id="menu">
                 <div class="containerLog">
                     <div class="log">
                         <span>Historico:</span> 
@@ -215,8 +249,10 @@
             </section>
         </footer>
 
+        <script src="src/changeCalculator.js"></script>
         <script src="src/defaultCalculator.js"></script>
         <script src="src/menu.js"></script>
+        <script src="src/dateCalculate.js"></script>
 
     </body>
 </html>
